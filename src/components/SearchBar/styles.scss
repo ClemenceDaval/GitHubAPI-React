@@ -1,0 +1,7 @@
+@use 'src/styles/vars';
+
+.searchBar{
+
+  background-color:vars.$light-color;
+  padding: 0.5*vars.$gutter;
+}

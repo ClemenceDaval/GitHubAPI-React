@@ -1,0 +1,14 @@
+@use 'src/styles/vars';
+
+.results
+{
+  &__list{
+    display:flex;
+    flex-wrap:wrap;
+  }
+
+  &__item{
+    width:15%;
+    color:green;
+  }
+}

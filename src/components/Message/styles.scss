@@ -1,0 +1,12 @@
+@use 'src/styles/vars';
+
+.message{
+
+  background-color:vars.$light-color;
+  border: 1px solid #dedede;
+  border-radius: 1px;
+  text-align:left;
+  padding: 0.5*vars.$gutter;
+  margin-top:0.5*vars.$gutter;
+
+}

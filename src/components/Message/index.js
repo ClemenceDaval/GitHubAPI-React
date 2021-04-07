@@ -7,9 +7,9 @@ import './styles.scss';
 
 // == Composant
 const Message = () => (
-  <div className="message">
-    <p> La recherche a donné 1000 résultats </p>
-  </div>
+  <p className="message">
+    La recherche a donné 1000 résultats
+  </p>
 );
 
 // == Export
