@@ -2,12 +2,14 @@
 // == Import npm
 import React, { useState } from 'react';
 
-// On importe axios depuis la bibliothèque axios
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 
 import Message from '../Message';
 import ReposResults from '../ReposResults';
 import SearchBar from '../SearchBar';
+import Header from '../Header';
+import Faq from '../Faq';
 import logo from '../../assets/images/logo-github.png';
 
 import './styles.scss';
@@ -52,13 +54,19 @@ const GithubApp = () => {
   return (
     <div className="githubApp">
       <img src={logo} alt="logo GitHub" />
-      <SearchBar
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        loadResults={loadResults}
-      />
-      <Message message={message} />
-      { open && <ReposResults results={results} /> }
+      <Header />
+      <Route path="/" exact>
+        <SearchBar
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          loadResults={loadResults}
+        />
+        <Message message={message} />
+        { open && <ReposResults results={results} /> }
+      </Route>
+      <Route path="/faq" exact>
+        <Faq />
+      </Route>
     </div>
   );
 };
