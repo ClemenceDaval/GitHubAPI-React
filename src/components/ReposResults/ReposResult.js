@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 // == Import
 import { Card } from 'semantic-ui-react';
 import './styles.scss';
-import logo from '../../assets/images/logo-github.png';
 
 // == Composant
 const ReposResult = ({ name, description, owner }) => (

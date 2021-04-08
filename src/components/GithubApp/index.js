@@ -27,12 +27,12 @@ const GithubApp = () => {
           console.log('exécuté en cas de succès');
           console.log(response);
           setResults(response.data.items);
-          setNumberOfResults(response.data.total_count);
+          setNumberOfResults(parseInt(response.data.total_count, 10));
         })
         .catch((error) => {
           console.log('une erreur s\'est produite', error);
         })
-        .finally(() => { 
+        .finally(() => {
           console.log('exécuté que tout se soit bien passé ou pas');
         });
     },
@@ -44,7 +44,7 @@ const GithubApp = () => {
   return (
     <div className="githubApp">
       <img src={logo} alt="logo GitHub" />
-      <SearchBar searchValue={searchValue} />
+      <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
       <Message totalCount={nbOfResults} />
       <ReposResults results={results} />
     </div>

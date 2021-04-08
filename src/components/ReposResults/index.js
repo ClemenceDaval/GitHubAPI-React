@@ -14,7 +14,7 @@ const ReposResults = ({ results }) => {
   return (
     <div className="results__list">
       {
-        results.map((result) => <ReposResult {...result} />)
+        results.map((result) => <ReposResult key={result.id} {...result} />)
       }
     </div>
   );
