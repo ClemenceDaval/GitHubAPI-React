@@ -1,60 +1,37 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import { Card } from 'semantic-ui-react';
 import './styles.scss';
-import logo from '../../assets/images/logo-github.png';
+import ReposResult from './ReposResult';
 
 // == Composant
-const ReposResults = () => (
-  <div className="results__list">
-    <Card.Group itemsPerRow={3}>
-      <Card
-        className="results__item"
-        image={logo}
-        header="freeCodeCamp"
-        meta="freeCodeCamp"
-        description="blablabla salut blablabla salut salut salut blabla bla"
-      />
-      <Card
-        className="results__item"
-        image={logo}
-        header="freeCodeCamp"
-        meta="freeCodeCamp"
-        description="blablabla salut blablabla salut salut salut blabla bla"
-      />
-      <Card
-        className="results__item"
-        image={logo}
-        header="freeCodeCamp"
-        meta="freeCodeCamp"
-        description="blablabla salut blablabla salut salut salut blabla bla"
-      />
-      <Card
-        className="results__item"
-        image={logo}
-        header="freeCodeCamp"
-        meta="freeCodeCamp"
-        description="blablabla salut blablabla salut salut salut blabla bla"
-      />
-      <Card
-        className="results__item"
-        image={logo}
-        header="freeCodeCamp"
-        meta="freeCodeCamp"
-        description="blablabla salut blablabla salut salut salut blabla bla"
-      />
-      <Card
-        className="results__item"
-        image={logo}
-        header="freeCodeCamp"
-        meta="freeCodeCamp"
-        description="blablabla salut blablabla salut salut salut blabla bla"
-      />
-    </Card.Group>
-  </div>
-);
+const ReposResults = ({ results }) => {
+  console.log(results);
+
+  return (
+    <div className="results__list">
+      {
+        results.map((result) => <ReposResult {...result} />)
+      }
+      {/* <Card.Group itemsPerRow={3}>
+        
+      </Card.Group> */}
+    </div>
+  );
+};
+
+ReposResults.propTypes = {
+  results: PropTypes.arrayOf(
+    PropTypes.shape(
+      {
+        id: PropTypes.number.isRequired,
+      },
+    ),
+  ).isRequired,
+};
 
 // == Export
 export default ReposResults;
