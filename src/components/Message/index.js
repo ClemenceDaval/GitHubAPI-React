@@ -7,14 +7,14 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Composant
-const Message = ({ totalCount }) => (
+const Message = ({ message }) => (
   <p className="message">
-    La recherche a donné {totalCount} résultats
+    {message}
   </p>
 );
 
 Message.propTypes = {
-  totalCount: PropTypes.number.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 // == Export

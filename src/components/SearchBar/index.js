@@ -14,16 +14,14 @@ const SearchBar = ({ searchValue, setSearchValue, loadResults }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(`chargement des résultats pour la recherche ${searchValue}`);
+    // console.log(`chargement des résultats pour la recherche ${searchValue}`);
     loadResults();
   }
 
   return (
-    <div className="searchBar">
-      <form className="form" onSubmit={handleSubmit}>
-        <Input type="text" fluid icon="search" iconPosition="left" placeholder="Rechercher..." onChange={handleChange} value={searchValue} />
-      </form>
-    </div>
+    <form className="form searchBar" onSubmit={handleSubmit}>
+      <Input type="text" fluid icon="search" iconPosition="left" placeholder="Rechercher..." onChange={handleChange} value={searchValue} />
+    </form>
   );
 };
 
