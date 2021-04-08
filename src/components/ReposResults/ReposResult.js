@@ -8,12 +8,15 @@ import './styles.scss';
 
 // == Composant
 const ReposResult = ({ name, description, owner }) => (
-  <Card
-    image={owner.avatar_url}
-    header={name}
-    meta={owner.login}
-    description={description}
-  />
+  <div className="result__container">
+    <Card
+      className="result__card"
+      image={owner.avatar_url}
+      header={name}
+      meta={owner.login}
+      description={description}
+    />
+  </div>
 );
 
 ReposResult.propTypes = {
