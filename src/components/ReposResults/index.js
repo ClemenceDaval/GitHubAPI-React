@@ -16,9 +16,6 @@ const ReposResults = ({ results }) => {
       {
         results.map((result) => <ReposResult {...result} />)
       }
-      {/* <Card.Group itemsPerRow={3}>
-        
-      </Card.Group> */}
     </div>
   );
 };
