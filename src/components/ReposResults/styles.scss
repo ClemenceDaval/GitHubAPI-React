@@ -14,6 +14,10 @@
       justify-content: center;
     }
   }
+
+  &__button{
+    margin-top:vars.$gutter;
+  }
 }
 
 .result

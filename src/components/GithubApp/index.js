@@ -20,9 +20,10 @@ const GithubApp = () => {
   const [searchValue, setSearchValue] = useState('');
   const [results, setResults] = useState([]);
   const [message, setMessage] = useState('Lancez une recherche pour trouver un repos.');
+  const [nbOfResultsPerPage, setNbOfResultsPerPage] = useState(9);
 
-  const loadResults = () => {
-    axios.get(`https://api.github.com/search/repositories?q= ${searchValue}`)
+  function loadResults() {
+    axios.get(`https://api.github.com/search/repositories?q= ${searchValue}&sort=stars&order=desc&page=1&per_page=${nbOfResultsPerPage}`)
       .then((response) => {
         console.log('exécuté en cas de succès');
         // console.log(response);
@@ -60,9 +61,19 @@ const GithubApp = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           loadResults={loadResults}
+          setNbOfResultsPerPage={setNbOfResultsPerPage}
         />
         <Message message={message} />
-        { open && <ReposResults results={results} /> }
+        {
+          open && (
+            <ReposResults
+              results={results}
+              nbOfResultsPerPage={nbOfResultsPerPage}
+              setNbOfResultsPerPage={setNbOfResultsPerPage}
+              loadResults={loadResults}
+            />
+          )
+        }
       </Route>
       <Route path="/faq" exact>
         <Faq />

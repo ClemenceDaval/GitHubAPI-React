@@ -26,7 +26,7 @@ const Header = () => (
         </Menu.Item>
       </NavLink>
       <NavLink
-        key="recherche"
+        key="faq"
         to="/faq"
         exact
         activeClassName="menu-link__selected"

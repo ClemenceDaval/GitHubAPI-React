@@ -7,7 +7,7 @@ import { Input } from 'semantic-ui-react';
 import './styles.scss';
 
 // == Composant
-const SearchBar = ({ searchValue, setSearchValue, loadResults }) => {
+const SearchBar = ({ searchValue, setSearchValue, loadResults, setNbOfResultsPerPage }) => {
   function handleChange(event) {
     setSearchValue(event.target.value);
   }
@@ -16,6 +16,7 @@ const SearchBar = ({ searchValue, setSearchValue, loadResults }) => {
     event.preventDefault();
     // console.log(`chargement des résultats pour la recherche ${searchValue}`);
     loadResults();
+    setNbOfResultsPerPage(9);
   }
 
   return (
@@ -29,6 +30,7 @@ SearchBar.propTypes = {
   searchValue: PropTypes.string.isRequired,
   setSearchValue: PropTypes.func.isRequired,
   loadResults: PropTypes.func.isRequired,
+  setNbOfResultsPerPage: PropTypes.func.isRequired,
 };
 
 // == Export
